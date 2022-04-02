@@ -1,0 +1,76 @@
+<!doctype html>
+
+<html>
+<head>
+<style>
+#hamptertext {
+  font-size: 5em;}
+
+#seconds {
+  font-size: 5em;}
+
+#minutes {
+  font-size: 5em;
+}
+#colon {
+  font-size: 5em;
+}
+</style>
+<meta charset="utf-8">
+
+<title>Hampter Watch</title>
+<link rel="icon" href="RTT_WEBSITE_ICON.png">
+
+<!-- Load external CSS styles -->
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+<center>
+<h1>Hampter Watch</h1>
+<img src="RTT_WEBSITE_ICON.png" alt="Logo">
+<br>
+<a href="index.html">
+<img border="0" src="Back.png" alt="Back">
+</a>
+<br>
+
+<img src="hampter.gif" alt="Hampter">
+
+<br>
+<label id="hamptertext">You Watch Hampter For: </label>
+<label id="minutes">00</label>
+<label id="colon">:</label>
+<label id="seconds">00</label>
+    <script type="text/javascript">
+        var minutesLabel = document.getElementById("minutes");
+        var secondsLabel = document.getElementById("seconds");
+        var totalSeconds = 0;
+        setInterval(setTime, 1000);
+
+        function setTime()
+        {
+            ++totalSeconds;
+            secondsLabel.innerHTML = pad(totalSeconds%60);
+            minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+        }
+
+        function pad(val)
+        {
+            var valString = val + "";
+            if(valString.length < 2)
+            {
+                return "0" + valString;
+            }
+            else
+            {
+                return valString;
+            }
+        }
+    </script>
+
+</center>
+</body>
+
+</html>
